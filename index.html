@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Spotify 認証テスト</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#121212;color:#fff;font-family:sans-serif}
+    button{font-size:18px;padding:14px 20px;border:0;border-radius:10px}
+  </style>
+</head>
+<body>
+  <div>
+    <h1 style="text-align:center;margin-bottom:16px;">Spotify 認証テスト</h1>
+    <button id="login">Spotifyでログイン</button>
+    <p id="msg" style="opacity:.8;margin-top:12px;text-align:center;"></p>
+  </div>
+
+  <script>
+    // ★ここを書き換えてください
+    const clientId = "あなたのClient IDをここに";
+    const redirectUri = "あなたが登録したRedirect URI（例: https://a-tune712.github.io/Spotify--redirect/）";
+    const scopes = "user-read-private user-read-email streaming user-modify-playback-state user-read-playback-state";
+
+    document.getElementById("login").addEventListener("click", () => {
+      const authUrl =
+        "https://accounts.spotify.com/authorize" +
+        "?client_id=" + encodeURIComponent(clientId) +
+        "&response_type=token" +
+        "&redirect_uri=" + encodeURIComponent(redirectUri) +
+        "&scope=" + encodeURIComponent(scopes);
+      document.getElementById("msg").textContent = "Spotifyの認証画面へ移動します…";
+      location.href = authUrl;
+    });
+  </script>
+</body>
+</html>
