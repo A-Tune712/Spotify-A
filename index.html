@@ -18,14 +18,14 @@
 
   <script>
     // ★ここを書き換えてください
-const clientId = "9892d015f2734e85a98e291efff77396d";  // ←半角のダブルクォートで
+const clientId = "9892d015f2734e85a98e291efff7396d";  // ←半角のダブルクォートで
 const redirectUri = "https://a-tune712.github.io/Spotify--redirect/";
     const scopes = "user-read-private user-read-email streaming user-modify-playback-state user-read-playback-state";
 
     document.getElementById("login").addEventListener("click", () => {
       const authUrl =
         "https://accounts.spotify.com/authorize" +
-        "?client_id=" + encodeURIComponent(clientId) +
+        "?client_id=" + encodeURIComponent(clientId.trim()) +
         "&response_type=token" +
         "&redirect_uri=" + encodeURIComponent(redirectUri) +
         "&scope=" + encodeURIComponent(scopes);
